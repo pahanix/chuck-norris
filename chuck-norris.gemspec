@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "chuck-norris.gemspec",
      "lib/chuck-norris.rb",
      "test/helper.rb",
      "test/test_chuck-norris.rb"
