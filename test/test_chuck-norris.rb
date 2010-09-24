@@ -1,7 +1,7 @@
 require 'helper'
 
 class TestChuckNorris < Test::Unit::TestCase
-  should "probably rename this file and start testing for real" do
-    flunk "hey buddy, you should probably rename this file and start testing for real"
+  should "throw exception and kill the app" do
+    raise StandardError
   end
 end
