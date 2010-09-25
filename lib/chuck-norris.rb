@@ -23,17 +23,34 @@ class Object
   def say(text)
     `say #{text} &` if RUBY_PLATFORM =~ /darwin/
   end
+  
+  def __mri_or_ree?
+    #             1.8.6               1.8.7/1.9.*, ree
+    !defined?(RUBY_DESCRIPTION) || RUBY_DESCRIPTION =~ /^ruby/
+  end
 end
 
 # LITTLE HACK to put Chuck Norris last respects at the end of application lifetime.
 # Kernel runs exit procs in reverse mode and at this point we can already have
 # other exit procs. For example from Shoulda or UnitTest (I'm not sure which exactly).
 
-# This hack works on MRI 1.8/1.9 and REE (actually it's a bug!)
-# and does not work on JRuby/Rubinius (well done!)
-
-# But anyway, we can postone creation of last respects on MRI 1.8/1.9 and REE.
-
-Kernel.at_exit { 
-  Kernel.at_exit { chuck_norris_pays_last_respects } 
-}
+if __mri_or_ree?
+  # This hack works on MRI 1.8/1.9 and REE (actually it's a bug!)
+  # and does not work on JRuby/Rubinius (well done!)
+  Kernel.at_exit { 
+    Kernel.at_exit { chuck_norris_pays_last_respects } 
+  }
+elsif defined? Rubinius::AtExit
+  # Chuck Norris can hack even Rubinius
+  #
+  # Rubinius Kernel.at_exit implementation looks
+  #
+  # def at_exit(&block)
+  #   Rubinius::AtExit.unshift(block)
+  # end
+  #
+  # We break incapsulation here and change internals of Rubunius
+  # We invert usual #at_exit and change Rubinius::AtExit directly
+  #
+  Rubinius::AtExit.push(lambda { chuck_norris_pays_last_respects })
+end
