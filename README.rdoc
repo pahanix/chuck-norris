@@ -1,7 +1,0 @@
-= Chuck Norris
-
-When Chuck Norris throws exceptions, it’s across the room.
-
-== Copyright
-
-Copyright (c) 2010 Pavel Gorbokon (pahanix). See LICENSE for details.
