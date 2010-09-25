@@ -5,7 +5,12 @@ When your app dies Chuck Noris pays last respects.
 
 Last words always belong to Chuck Norris.
 
-You can call Chuck Norris in your app using
+## Call Chuck Norris in you app
+
+    alias call="gem install"
+    call chuck-norris
+
+Inside your app
 
     require 'chuck-noris'
 
