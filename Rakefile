@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "chuck-norris"
     gem.summary = %Q{Chuck Norris}
-    gem.description = %Q{When Chuck Norris throws exceptions, it’s across the room}
+    gem.description = %Q{When Chuck Norris throws exceptions, it's across the room}
     gem.email = "pahanix@gmail.com"
     gem.homepage = "http://github.com/pahanix/chuck-norris"
     gem.authors = ["Pavel Gorbokon (pahanix)"]
