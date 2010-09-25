@@ -2,11 +2,12 @@
 
 Chuck Noris will watch every exception and will be with your app till the end.
 When your app dies Chuck Noris pays last respects.
+
 Last words always belong to Chuck Norris.
 
 You can call Chuck Norris in your app using
 
-  require 'chuck-noris'
+    require 'chuck-noris'
 
 ## Ruby versions
 
