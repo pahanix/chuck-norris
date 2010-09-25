@@ -53,4 +53,8 @@ elsif defined? Rubinius::AtExit
   # We invert usual #at_exit and change Rubinius::AtExit directly
   #
   Rubinius::AtExit.push(lambda { chuck_norris_pays_last_respects })
+elsif RUBY_PLATFORM =~ /java/
+  # and Java knocks under Chuck Norris
+  require 'java'
+  org.jruby.Ruby.getGlobalRuntime.pushExitBlock(lambda { chuck_norris_pays_last_respects })
 end
